@@ -11,9 +11,14 @@ RUN apt update && apt install -y \
     python3 \
     python3-pip \
     openssh-server \
-    ttyd \
     sudo \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
+
+# Install ttyd
+RUN wget -O /usr/local/bin/ttyd \
+    https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64 \
+    && chmod +x /usr/local/bin/ttyd
 
 RUN useradd -m -s /bin/bash user && \
     echo "user:user" | chpasswd && \
