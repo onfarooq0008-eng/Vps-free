@@ -2,4 +2,4 @@
 
 service ssh start
 
-ttyd -p 7681 -W -u user -w user bash
+ttyd -p 7681 -W bash
